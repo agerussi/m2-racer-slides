@@ -1,0 +1,77 @@
+\documentclass{beamer}
+\mode<presentation>
+\usepackage[utf8]{inputenc}
+%\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{graphics}
+\uselanguage{french}
+\usetheme{Warsaw}
+\usecolortheme{orchid}
+
+\title{RACER}
+\subtitle{Rapid and Accurate Correction of Errors in Reads}
+\date{23 septembre 2015}
+\author{Delphine Poux, Alexandre Gerussi, Valentin Owczarek}
+\institute{M2 MOCAD - Sciences du Vivant}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Plan de l'exposé}
+\tableofcontents[pausesections]
+\end{frame}
+
+\section{Évaluation des performances de correction}
+\begin{frame}
+\frametitle{Évaluer les performances de correction}
+\begin{itemize}
+    \item plusieurs stratégies possibles
+    \begin{itemize}
+        \item mapper les reads sur le génome de référence
+        \item utiliser les reads dans d'autres applications (alignement\dots)
+    \end{itemize}
+    \item méthode de RACER:
+    \begin{itemize}
+        \item un read est cherché de manière exacte sur le génome de référence
+        \item estampillé "correct" s'il est trouvé, "incorrect" sinon
+        \item calcul de la somme $e_b$ et $e_a$ des longueurs des reads {\em incorrects} avant et après correction
+        \item performance = taux de variation entre $e_b$ et $e_a$.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Résultats et comparaisons}
+\begin{frame}
+    \frametitle{Jeux de données}
+    \begin{itemize}
+        \item utilisation de jeux de données réelles
+        \item les performances sur les données artificielles se généralisent mal
+        \item artificielles = plus simples à corriger
+    \end{itemize}
+    \begin{centering}
+        \includegraphics<1>[width=11cm]{donnees.jpg}%
+    \end{centering}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Mise en oeuvre}
+    \begin{itemize}
+        \item AMD Opteron 24 coeurs et 98 GB de RAM
+        \item comparaison de la vitesse, de l'espace mémoire et des performances de correction
+        \item vitesse et espace mémoire sont normalisés
+        \item exécution en série et en parallèle 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Résultats}
+    \begin{centering}
+        \includegraphics<1>[width=11cm]{resultats.jpg}%
+    \end{centering}
+\end{frame}
+\end{document}
