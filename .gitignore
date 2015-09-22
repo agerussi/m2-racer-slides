@@ -1,0 +1,7 @@
+*.log
+*.nav
+*.aux
+*.dvi
+*.out
+*.toc
+*.snm
