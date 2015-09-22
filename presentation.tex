@@ -23,8 +23,49 @@
 
 \begin{frame}
 \frametitle{Plan de l'exposé}
-\tableofcontents[pausesections]
+\tableofcontents
 \end{frame}
+
+\section{Introduction}
+
+\frame{
+\frametitle{Séquençage nouvelle génération (SNG)}
+\begin{itemize}
+\item Sanger et al. 1977
+\begin{itemize}
+\item première génération
+\item a ses limites
+\end{itemize}
+\item Nouvelle génération de séquençage
+\begin{itemize}
+\item Plus rapide, plus puissant, moins cher
+\item Projets ambitieux
+\item Illumina/Solexa, Roche/454, Life/APG’s SOLiD, Helicos BioSciences’ HeliScope, Pacific Biosciences, Life’s Ion Torrent
+\end{itemize}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Bio-informatique \& les erreurs de séquençage}
+\begin{itemize}
+\item Nécessite alignement de haute qualité
+\item Illumina : erreurs dans un read sur 2 $\rightarrow$ corrections
+\item Substitutions principalement
+\item Mécanismes de corrections internes
+\item Idée principale : utiliser le fait que le read a été séquencé un certain nombre de fois
+\item Différence : comment faire l'analyse
+\end{itemize}
+}
+
+\frame{
+\frametitle{Corrections de séquences}
+\begin{itemize}
+\item si nombre de k-mers $>$ seuil : on garde $\rightarrow$ SHREC,
+HiTEC, HSHREC et PSAEC
+\item Corrige les k-mers de distance min pour dépasser le seuil : CUDA, Quake, Reptile et Hammer
+\item Alignement de séquence multiple : Coral, ECHO et MyHybrid
+\end{itemize}
+}
 
 \section{Évaluation des performances de correction}
 \begin{frame}
